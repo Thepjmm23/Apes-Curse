@@ -199,68 +199,35 @@
       <li>Discord: <a href="https://discord.gg/aMnNNTZY2w" target="_blank" rel="noopener noreferrer">https://discord.gg/aMnNNTZY2w</a></li>
     </ul>
   </section>
+  
+<section id="Terms">
+    <h2>terms of use</h2>
+    <p>
+Apes Curse - Official Terms
+Owner: Thepjmm23
 
-  <section id="terms">
-    <button id="showTerms" class="button" aria-haspopup="dialog" aria-controls="termsModal">View Terms of Use</button>
+1. Game Usage
+You are allowed to play, stream, and make fan art for the game. 
+You are not allowed to modify or reverse-engineer the game without permission.
+You are not allowed to sell, resell, or profit from the game in any way without permission.
+2. Account & Data
+You are responsible only for your own account and activity.
+Abusing or exploiting game mechanics for a competitive advantage is not allowed.
+Any data stored by the game will be kept in Playfab (Playfab.com).
+3. Fair Play & Ownership
+Ownership of the game, assets, and trademarks resides with Thepjmm23 and its affiliation.
+No attempt at taking ownership of any part of the game is made.
+Should you get banned, you don't have a right to claim access to the game again.
+4. Enforcement & Changes
+Breaking these terms may result in restrictions, bans, or other actions if necessary.
+Thepjmm23 and the moderators have final say on all that pertains to enforcement.
+These terms may be changed at any time—continued use of the game means that you accept the changes.
+You accept these terms by playing this game. Play nicely, be respectful to the game, and have fun.</p>
+    <ul>
+    </ul>
   </section>
-
   <footer>
     <p>© 2025 Apes Curse VR Fan Game – Created by Thepjmm23</p>
   </footer>
-
-  <!-- Modal for Terms -->
-  <div id="termsModal" aria-hidden="true" role="dialog" aria-labelledby="termsTitle" tabindex="-1">
-    <div id="termsContent">
-      <button id="closeTerms" aria-label="Close Terms of Use">✕ Close</button>
-      <h2 id="termsTitle">Terms of Use</h2>
-      <pre id="termsText">Loading terms...</pre>
-    </div>
-  </div>
-
-  <script>
-    const showTermsBtn = document.getElementById('showTerms');
-    const termsModal = document.getElementById('termsModal');
-    const closeTermsBtn = document.getElementById('closeTerms');
-    const termsText = document.getElementById('termsText');
-
-    showTermsBtn.addEventListener('click', () => {
-      termsModal.style.display = 'block';
-      termsModal.setAttribute('aria-hidden', 'false');
-
-      fetch('https://pastebin.com/raw/VKDC1cBT')
-        .then(response => {
-          if (!response.ok) throw new Error('Network response was not ok');
-          return response.text();
-        })
-        .then(data => {
-          termsText.textContent = data;
-        })
-        .catch(() => {
-          termsText.textContent = 'Failed to load terms. Please try again later.';
-        });
-    });
-
-    closeTermsBtn.addEventListener('click', () => {
-      termsModal.style.display = 'none';
-      termsModal.setAttribute('aria-hidden', 'true');
-      termsText.textContent = 'Loading terms...';
-    });
-
-    window.addEventListener('click', e => {
-      if (e.target === termsModal) {
-        termsModal.style.display = 'none';
-        termsModal.setAttribute('aria-hidden', 'true');
-        termsText.textContent = 'Loading terms...';
-      }
-    });
-
-    window.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && termsModal.style.display === 'block') {
-        termsModal.style.display = 'none';
-        termsModal.setAttribute('aria-hidden', 'true');
-        termsText.textContent = 'Loading terms...';
-      }
-    });
-  </script>
 </body>
 </html>
