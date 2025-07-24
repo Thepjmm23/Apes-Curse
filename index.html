@@ -1,66 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="styles.css" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Apes Curse VR</title>
   <style>
+    /* Reset */
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
+
     body {
+      background-color: #001f4d; /* dark navy blue */
+      color: #ffffff; /* white text */
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 30px 40px;
       line-height: 1.6;
-      padding: 20px;
-      max-width: 800px;
-      margin: 0 auto;
-      background-color: #f4f4f4;
     }
-    header, section {
-      margin-bottom: 2rem;
+
+    header h1 {
+      font-size: 3.5rem;
+      font-weight: 900;
+      text-align: center;
+      color: #00bfff; /* bright sky blue */
+      margin-bottom: 0.3rem;
+      letter-spacing: 3px;
+      text-shadow: 0 0 8px #00bfffaa;
     }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      color: #222;
+
+    header p {
+      text-align: center;
+      font-style: italic;
+      font-weight: 600;
+      color: #80d4ff;
+      margin-bottom: 2.5rem;
+      text-shadow: 0 0 5px #80d4ffaa;
     }
+
+    section {
+      background-color: #003366; /* slightly lighter blue */
+      border-radius: 12px;
+      padding: 30px 35px;
+      margin-bottom: 35px;
+      box-shadow: 0 6px 15px #00000099;
+      border: 1px solid #00bfff;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    section:hover {
+      box-shadow: 0 10px 30px #00bfffcc;
+      transform: translateY(-6px);
+      border-color: #80d4ff;
+    }
+
     h2 {
-      font-size: 1.75rem;
-      margin-bottom: 0.5rem;
-      color: #333;
+      font-size: 2.25rem;
+      color: #00bfff;
+      border-bottom: 3px solid #80d4ff;
+      padding-bottom: 10px;
+      margin-bottom: 22px;
+      letter-spacing: 1.6px;
+      text-shadow: 0 0 8px #00bfffaa;
     }
+
     p, li {
-      font-size: 1rem;
-      margin-bottom: 0.75rem;
-      color: #444;
+      font-size: 1.15rem;
+      color: #e0e0e0;
+      margin-bottom: 16px;
     }
+
     ul {
-      list-style: disc inside;
+      list-style-type: disc;
+      padding-left: 22px;
     }
-    .button {
-      display: inline-block;
-      background-color: #28a745;
-      color: #fff;
-      padding: 0.75rem 1.5rem;
+
+    a {
+      color: #00bfff;
+      font-weight: 700;
       text-decoration: none;
-      border-radius: 4px;
-      font-weight: bold;
-      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #80d4ff;
+      text-decoration: underline;
+      text-shadow: 0 0 8px #80d4ffcc;
+    }
+
+    .button, button {
+      background-color: #00bfff;
       border: none;
+      border-radius: 30px;
+      color: #001f4d;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1.15rem;
+      padding: 14px 36px;
+      box-shadow: 0 8px 20px #00bfffaa;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      display: inline-block;
+      margin-top: 15px;
     }
-    .button:hover {
-      background-color: #218838;
+
+    .button:hover, button:hover {
+      background-color: #80d4ff;
+      box-shadow: 0 12px 30px #80d4ffcc;
     }
+
     footer {
       text-align: center;
-      font-size: 0.9rem;
-      color: #666;
-      padding-top: 1rem;
-      border-top: 1px solid #ddd;
+      color: #80d4ff;
+      font-size: 1rem;
+      margin-top: 70px;
+      font-style: italic;
+      letter-spacing: 0.3px;
     }
+
     /* Modal styles */
     #termsModal {
       display: none;
@@ -69,18 +128,20 @@
       left: 0; top: 0;
       width: 100%; height: 100%;
       overflow: auto;
-      background-color: rgba(0,0,0,0.6);
+      background-color: rgba(0,0,0,0.7);
     }
     #termsContent {
-      background-color: #fff;
+      background-color: #003366;
       margin: 5% auto;
       padding: 20px;
       border-radius: 8px;
       max-width: 700px;
       max-height: 80vh;
       overflow-y: auto;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.8);
       white-space: pre-wrap;
+      color: #e0e0e0;
+      border: 1px solid #00bfff;
     }
     #closeTerms {
       background-color: #cc0000;
@@ -127,7 +188,7 @@
       Join the discord to install the game!
     </p>
     <ul>
-      <li>Discord: <a href="https://discord.gg/aMnNNTZY2w">https://discord.gg/aMnNNTZY2w</a></li>
+      <li>Discord: <a href="https://discord.gg/aMnNNTZY2w" target="_blank" rel="noopener noreferrer">https://discord.gg/aMnNNTZY2w</a></li>
     </ul>
   </section>
 
@@ -135,12 +196,12 @@
     <h2>Contact & Support</h2>
     <p>Found a bug? Want to help test new levels? Reach out:</p>
     <ul>
-      <li>Discord: <a href="https://discord.gg/aMnNNTZY2w">https://discord.gg/aMnNNTZY2w</a></li>
+      <li>Discord: <a href="https://discord.gg/aMnNNTZY2w" target="_blank" rel="noopener noreferrer">https://discord.gg/aMnNNTZY2w</a></li>
     </ul>
   </section>
 
   <section id="terms">
-    <button id="showTerms" class="button">View Terms of Use</button>
+    <button id="showTerms" class="button" aria-haspopup="dialog" aria-controls="termsModal">View Terms of Use</button>
   </section>
 
   <footer>
@@ -163,11 +224,9 @@
     const termsText = document.getElementById('termsText');
 
     showTermsBtn.addEventListener('click', () => {
-      // Show modal
       termsModal.style.display = 'block';
       termsModal.setAttribute('aria-hidden', 'false');
 
-      // Fetch terms from pastebin
       fetch('https://pastebin.com/raw/VKDC1cBT')
         .then(response => {
           if (!response.ok) throw new Error('Network response was not ok');
@@ -187,7 +246,6 @@
       termsText.textContent = 'Loading terms...';
     });
 
-    // Close modal if user clicks outside the content
     window.addEventListener('click', e => {
       if (e.target === termsModal) {
         termsModal.style.display = 'none';
@@ -196,7 +254,6 @@
       }
     });
 
-    // Accessibility: close modal on Escape key
     window.addEventListener('keydown', e => {
       if (e.key === 'Escape' && termsModal.style.display === 'block') {
         termsModal.style.display = 'none';
